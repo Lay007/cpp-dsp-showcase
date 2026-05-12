@@ -91,6 +91,7 @@ dsp_core/dsp.hpp
 ## Documentation
 
 - Engineering notes: [docs/engineering.md](docs/engineering.md)
+- Verification strategy: [docs/verification.md](docs/verification.md)
 - SIMD notes: [docs/simd.md](docs/simd.md)
 - Benchmark guide: [docs/benchmark.md](docs/benchmark.md)
 - SDR course bridge: [docs/course_bridge.md](docs/course_bridge.md)
