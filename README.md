@@ -92,8 +92,10 @@ dsp_core/dsp.hpp
 
 - Engineering notes: [docs/engineering.md](docs/engineering.md)
 - Verification strategy: [docs/verification.md](docs/verification.md)
+- FPGA mapping notes: [docs/fpga-mapping.md](docs/fpga-mapping.md)
 - SIMD notes: [docs/simd.md](docs/simd.md)
 - Benchmark guide: [docs/benchmark.md](docs/benchmark.md)
+- Engineering roadmap: [docs/roadmap.md](docs/roadmap.md)
 - SDR course bridge: [docs/course_bridge.md](docs/course_bridge.md)
 - Lab track: [docs/labs/README.md](docs/labs/README.md)
 
