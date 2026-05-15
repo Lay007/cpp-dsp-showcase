@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500" role="img" aria-labelledby="title desc">
+  <title id="title">DSP benchmark dashboard</title>
+  <desc id="desc">Dashboard-style summary of DSP throughput, SIMD gain and verification outputs.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f5f3ff"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.14"/></filter>
+    <style>.bg{fill:#f8fafc}.card{fill:url(#g);stroke:#cbd5e1;stroke-width:1.5;filter:url(#shadow)}.title{font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:800;fill:#0f172a}.note{font-family:Arial,Helvetica,sans-serif;font-size:16px;fill:#475569}.h{font-family:Arial,Helvetica,sans-serif;font-size:21px;font-weight:700;fill:#0f172a}.m{font-family:Arial,Helvetica,sans-serif;font-size:34px;font-weight:800;fill:#1e293b}.s{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#64748b}.bar{fill:#c4b5fd}.bar2{fill:#a5b4fc}.axis{stroke:#94a3b8;stroke-width:1}</style>
+  </defs>
+  <rect class="bg" width="1400" height="500" rx="28"/>
+  <text class="title" x="56" y="58">DSP Benchmark Dashboard</text>
+  <text class="note" x="56" y="88">Template for reproducible benchmark reporting: throughput, SIMD gain, numerical deviation and CI artifacts</text>
+  <g transform="translate(55,130)">
+    <rect class="card" x="0" y="0" width="285" height="140" rx="20"/><text class="h" x="28" y="42">Throughput</text><text class="m" x="28" y="88">MSamples/s</text><text class="s" x="28" y="116">per kernel, generated from benchmark runs</text>
+    <rect class="card" x="315" y="0" width="285" height="140" rx="20"/><text class="h" x="343" y="42">SIMD Gain</text><text class="m" x="343" y="88">scalar vs AVX2</text><text class="s" x="343" y="116">optimization credibility</text>
+    <rect class="card" x="630" y="0" width="285" height="140" rx="20"/><text class="h" x="658" y="42">Accuracy</text><text class="m" x="658" y="88">RMS / max error</text><text class="s" x="658" y="116">reference-vector comparison</text>
+    <rect class="card" x="945" y="0" width="340" height="140" rx="20"/><text class="h" x="973" y="42">CI Artifacts</text><text class="m" x="973" y="88">reports + plots</text><text class="s" x="973" y="116">machine-readable and reviewable outputs</text>
+  </g>
+  <g transform="translate(90,340)">
+    <line class="axis" x1="0" y1="0" x2="1220" y2="0"/>
+    <rect class="bar" x="35" y="-80" width="130" height="80" rx="8"/><rect class="bar2" x="205" y="-120" width="130" height="120" rx="8"/>
+    <rect class="bar" x="415" y="-65" width="130" height="65" rx="8"/><rect class="bar2" x="585" y="-100" width="130" height="100" rx="8"/>
+    <rect class="bar" x="795" y="-50" width="130" height="50" rx="8"/><rect class="bar2" x="965" y="-92" width="130" height="92" rx="8"/>
+    <text class="s" x="75" y="28">FIR</text><text class="s" x="445" y="28">Goertzel</text><text class="s" x="820" y="28">Resampler</text>
+    <text class="s" x="1120" y="-92">template values</text>
+  </g>
+</svg>
