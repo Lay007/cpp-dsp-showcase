@@ -94,7 +94,9 @@ dsp_core/dsp.hpp
 - Verification strategy: [docs/verification.md](docs/verification.md)
 - FPGA mapping notes: [docs/fpga-mapping.md](docs/fpga-mapping.md)
 - SIMD notes: [docs/simd.md](docs/simd.md)
+- Performance metrics: [docs/performance-metrics.md](docs/performance-metrics.md)
 - Benchmark guide: [docs/benchmark.md](docs/benchmark.md)
+- Benchmark report template: [reports/benchmark_report.template.md](reports/benchmark_report.template.md)
 - Engineering roadmap: [docs/roadmap.md](docs/roadmap.md)
 - SDR course bridge: [docs/course_bridge.md](docs/course_bridge.md)
 - Lab track: [docs/labs/README.md](docs/labs/README.md)
@@ -104,6 +106,10 @@ dsp_core/dsp.hpp
 ### DSP module flow
 
 ![DSP flow](docs/assets/dsp_modules_flow.svg)
+
+### Benchmark dashboard
+
+![DSP benchmark dashboard](docs/assets/dsp_benchmark_dashboard.svg)
 
 ### FIR response
 
@@ -117,7 +123,7 @@ dsp_core/dsp.hpp
 
 ![GCC-PHAT delay](docs/assets/gcc_phat_delay.svg)
 
-### Benchmark dashboard
+### Generated benchmark dashboard
 
 ![Benchmark dashboard](docs/assets/benchmark_dashboard.svg)
 
