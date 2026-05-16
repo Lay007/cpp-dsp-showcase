@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "description": "Example benchmark baseline for cpp-dsp-showcase. Replace placeholder values with generated benchmark results.",
+  "environment": {
+    "cpu": "TBD",
+    "os": "TBD",
+    "compiler": "TBD",
+    "build_type": "Release",
+    "simd": "scalar_or_avx2"
+  },
+  "metrics": [
+    {
+      "kernel": "fir_direct",
+      "input_size": 0,
+      "throughput_msamples_s": null,
+      "cycles_per_sample": null,
+      "notes": "baseline direct convolution"
+    },
+    {
+      "kernel": "fir_overlap_save",
+      "input_size": 0,
+      "throughput_msamples_s": null,
+      "cycles_per_sample": null,
+      "notes": "long-filter path"
+    },
+    {
+      "kernel": "goertzel",
+      "input_size": 0,
+      "throughput_msamples_s": null,
+      "cycles_per_sample": null,
+      "notes": "tone detection"
+    },
+    {
+      "kernel": "rational_resampler",
+      "input_size": 0,
+      "throughput_msamples_s": null,
+      "cycles_per_sample": null,
+      "notes": "L/M conversion"
+    }
+  ]
+}
