@@ -1,0 +1,37 @@
+name: Generated Benchmark Report
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  generated-benchmark-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate benchmark report example
+        run: python tools/generate_benchmark_report.py
+
+      - name: Check generated artifacts
+        run: |
+          test -f benchmarks/latest.example.json
+          test -f reports/benchmark_report.generated.md
+          test -f docs/assets/generated_benchmark_summary.svg
+
+      - name: Upload generated benchmark artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-benchmark-report
+          path: |
+            benchmarks/latest.example.json
+            reports/benchmark_report.generated.md
+            docs/assets/generated_benchmark_summary.svg
