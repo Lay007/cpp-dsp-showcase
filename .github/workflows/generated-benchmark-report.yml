@@ -28,7 +28,7 @@ jobs:
           test -f docs/assets/generated_benchmark_summary.svg
 
       - name: Upload generated benchmark artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: generated-benchmark-report
           path: |
