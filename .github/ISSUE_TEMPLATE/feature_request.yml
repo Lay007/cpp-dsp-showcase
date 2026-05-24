@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose a DSP kernel, verification artifact, benchmark or documentation improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Engineering use case
+      description: What problem does this solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the API, algorithm, document or benchmark change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: How should this be tested or measured?
+      placeholder: |
+        - unit test
+        - deterministic vector
+        - benchmark comparison
+        - generated plot/report
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Optional links to papers, docs, datasets or related projects.
