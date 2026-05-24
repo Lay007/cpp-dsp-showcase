@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible defect in DSP code, build system, tests or documentation
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide exact commands, input data and platform details.
+      placeholder: |
+        1. Run ...
+        2. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      placeholder: "Ubuntu 24.04 / Windows 11, compiler, CMake version"
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, plots or reports
+      description: Paste relevant logs or link generated artifacts.
