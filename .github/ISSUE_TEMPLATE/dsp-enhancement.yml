@@ -1,0 +1,32 @@
+name: DSP enhancement
+description: Propose an algorithm, benchmark, test vector, or numerical-quality improvement
+title: "DSP: "
+labels: [enhancement, dsp]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What DSP, performance, numerical, or portability problem should be improved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed implementation
+      description: Describe the algorithm, API, benchmark, or documentation change.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: List unit tests, reference models, tolerances, datasets, or benchmark metrics.
+      placeholder: CTest, known test vector, SNR/EVM/error tolerance, benchmark before/after
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Numerical and engineering risks
+      description: What can regress? Mention precision, overflow, latency, CPU features, or platform assumptions.
