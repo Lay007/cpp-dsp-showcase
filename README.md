@@ -28,6 +28,17 @@ deterministic kernels, unit tests, benchmark tooling, CI, and supporting SDR cou
 | Sample-rate conversion | Rational `L/M` resampler with anti-alias filtering |
 | Tooling | Demo apps, benchmarks, unit tests, generated documentation assets |
 
+## Reviewer path
+
+| Guide | Purpose |
+|---|---|
+| [Algorithm evidence matrix](docs/algorithm-evidence-matrix.md) | algorithm-by-algorithm proof map: tests, benchmarks, plots and FPGA direction |
+| [Verification strategy](docs/verification.md) | how deterministic tests protect DSP behavior |
+| [Benchmark guide](docs/benchmark.md) | how performance measurements are generated and interpreted |
+| [Performance metrics](docs/performance-metrics.md) | benchmark and report metric definitions |
+| [Zynq SDR course bridge](docs/zynq-sdr-course-bridge.md) | mapping between course concepts and C++ implementation evidence |
+| [FPGA mapping notes](docs/fpga-mapping.md) | hardware-oriented interpretation of selected DSP kernels |
+
 ## Build
 
 ```bash
@@ -90,6 +101,8 @@ dsp_core/dsp.hpp
 
 ## Documentation
 
+- Algorithm evidence matrix: [docs/algorithm-evidence-matrix.md](docs/algorithm-evidence-matrix.md)
+- Bridge to zynq-sdr-course: [docs/zynq-sdr-course-bridge.md](docs/zynq-sdr-course-bridge.md)
 - Engineering notes: [docs/engineering.md](docs/engineering.md)
 - Verification strategy: [docs/verification.md](docs/verification.md)
 - FPGA mapping notes: [docs/fpga-mapping.md](docs/fpga-mapping.md)
