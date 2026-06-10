@@ -10,6 +10,7 @@ This repository treats verification as part of the DSP implementation itself.
 | Golden vectors | stable reference behavior |
 | Benchmarks | reproducible timing measurements |
 | Visual plots | fast engineering diagnostics |
+| Install/export smoke | prove the installed CMake package works for an external consumer |
 | CI | prevent regressions |
 
 ## Recommended golden-vector structure
@@ -47,14 +48,33 @@ For DSP systems that later move into FPGA or embedded targets:
 | Execution time | real-time feasibility |
 | Throughput | scalability |
 
+## Installed package smoke test
+
+The repository includes a small external consumer under `examples/install_consumer`.
+
+The CI flow installs the library into a local prefix and then configures the consumer with:
+
+```bash
+cmake -S examples/install_consumer -B build-install-consumer -DCMAKE_PREFIX_PATH=<install-prefix>
+cmake --build build-install-consumer --config Release
+```
+
+This verifies that:
+
+- `cpp_dsp_showcaseConfig.cmake` is installed;
+- exported targets are visible through `find_package(cpp_dsp_showcase CONFIG REQUIRED)`;
+- downstream code can link against `dsp_core::dsp`;
+- public headers are installed correctly.
+
 ## CI philosophy
 
-The repository CI should answer four questions:
+The repository CI should answer five questions:
 
 1. Does it build?
 2. Does it pass deterministic tests?
-3. Are benchmark artifacts generated?
-4. Are documentation assets still valid?
+3. Can it be installed as a CMake package?
+4. Can an external consumer use the installed package?
+5. Are benchmark and documentation assets still valid?
 
 ## Future extensions
 
