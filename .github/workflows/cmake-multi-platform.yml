@@ -51,6 +51,27 @@ jobs:
       - name: Test
         run: ctest --test-dir build --build-config Release --output-on-failure
 
+      - name: Install package
+        run: cmake --install build --config Release --prefix install
+
+      - name: Configure installed package consumer
+        run: >
+          cmake -S examples/install_consumer -B build-install-consumer
+          -DCMAKE_PREFIX_PATH=${{ github.workspace }}/install
+          -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build installed package consumer
+        run: cmake --build build-install-consumer --config Release --parallel
+
+      - name: Run installed package consumer
+        run: |
+          if [ "${{ runner.os }}" = "Windows" ]; then
+            ./build-install-consumer/Release/install_consumer.exe
+          else
+            ./build-install-consumer/install_consumer
+          fi
+        shell: bash
+
       - name: Generate benchmark report
         if: runner.os == 'Linux'
         run: cmake --build build --config Release --target benchmark_report
