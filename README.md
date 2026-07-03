@@ -32,6 +32,7 @@ deterministic kernels, unit tests, benchmark tooling, CI, and supporting SDR cou
 
 | Guide | Purpose |
 |---|---|
+| [Reviewer quick check](docs/reviewer-quick-check.md) | short route for checking build, tests, benchmarks and evidence quality |
 | [Algorithm evidence matrix](docs/algorithm-evidence-matrix.md) | algorithm-by-algorithm proof map: tests, benchmarks, plots and FPGA direction |
 | [Verification strategy](docs/verification.md) | how deterministic tests protect DSP behavior |
 | [Benchmark guide](docs/benchmark.md) | how performance measurements are generated and interpreted |
@@ -101,6 +102,7 @@ dsp_core/dsp.hpp
 
 ## Documentation
 
+- Reviewer quick check: [docs/reviewer-quick-check.md](docs/reviewer-quick-check.md)
 - Algorithm evidence matrix: [docs/algorithm-evidence-matrix.md](docs/algorithm-evidence-matrix.md)
 - Bridge to zynq-sdr-course: [docs/zynq-sdr-course-bridge.md](docs/zynq-sdr-course-bridge.md)
 - Engineering notes: [docs/engineering.md](docs/engineering.md)
