@@ -6,7 +6,7 @@ This roadmap keeps the repository focused on demonstrable DSP engineering value.
 
 | Area | Improvement | Result |
 |---|---|---|
-| Verification | Add reusable golden vectors | stable cross-language validation |
+| Verification | Add reusable golden vectors following `docs/golden-vector-policy.md` | stable cross-language validation |
 | Benchmarks | Publish reproducible benchmark tables | visible performance evidence |
 | SIMD | Expand scalar vs AVX2 comparisons | optimization credibility |
 | Documentation | Add FPGA mapping notes | bridge from C++ to RTL |
@@ -34,3 +34,5 @@ A feature is considered complete when it has:
 3. benchmark or complexity note;
 4. documentation;
 5. connection to the portfolio-level engineering pipeline.
+
+For DSP correctness evidence, use [Golden Vector Policy](golden-vector-policy.md) before presenting a kernel as stable portfolio material.
