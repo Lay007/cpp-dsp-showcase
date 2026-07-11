@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software or its engineering results, please cite it using the metadata below."
+title: "cpp-dsp-showcase: Reproducible C++ DSP Kernels, Tests and Benchmarks"
+type: software
+authors:
+  - family-names: "Lyubko"
+    given-names: "Alexander"
+repository-code: "https://github.com/Lay007/cpp-dsp-showcase"
+url: "https://github.com/Lay007/cpp-dsp-showcase"
+license: MIT
+keywords:
+  - digital signal processing
+  - C++
+  - FIR filtering
+  - Goertzel algorithm
+  - GCC-PHAT
+  - sample-rate conversion
+  - SIMD
+  - benchmarking
+  - software-defined radio
+abstract: >-
+  A compact modern C++ DSP project containing deterministic implementations,
+  unit tests, benchmark tooling, generated engineering evidence, an installable
+  CMake package, and notes that connect software kernels to SDR and FPGA work.
