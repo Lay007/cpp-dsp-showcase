@@ -6,9 +6,17 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: benchmark-report-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   generated-benchmark-report:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -31,6 +39,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: generated-benchmark-report
+          retention-days: 14
           path: |
             benchmarks/latest.example.json
             reports/benchmark_report.generated.md
