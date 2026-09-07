@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 4,
   "cmakeMinimumRequired": {
     "major": 3,
     "minor": 23,
@@ -41,13 +41,11 @@
   "buildPresets": [
     {
       "name": "release",
-      "configurePreset": "release",
-      "jobs": 0
+      "configurePreset": "release"
     },
     {
       "name": "release-avx2",
-      "configurePreset": "release-avx2",
-      "jobs": 0
+      "configurePreset": "release-avx2"
     }
   ],
   "testPresets": [
