@@ -42,6 +42,24 @@ deterministic kernels, unit tests, benchmark tooling, CI, and supporting SDR cou
 
 ## Build
 
+The repository includes CMake presets for a reproducible local workflow. They use Ninja and keep baseline and AVX2 builds in separate build directories:
+
+```bash
+cmake --preset release
+cmake --build --preset release
+ctest --preset release
+```
+
+For an AVX2-enabled build:
+
+```bash
+cmake --preset release-avx2
+cmake --build --preset release-avx2
+ctest --preset release-avx2
+```
+
+The equivalent explicit CMake commands remain supported:
+
 ```bash
 cmake -S . -B build -DBUILD_TESTING=ON -DDSP_ENABLE_AVX2=ON -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
