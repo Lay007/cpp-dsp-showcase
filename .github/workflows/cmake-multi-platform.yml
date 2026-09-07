@@ -31,6 +31,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
+      - name: Validate CMake presets
+        run: cmake --list-presets
+
       - name: Setup Python
         if: runner.os == 'Linux'
         uses: actions/setup-python@v7
