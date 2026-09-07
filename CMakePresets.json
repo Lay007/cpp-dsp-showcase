@@ -1,0 +1,69 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_TESTING": "ON",
+        "DSP_BUILD_DEMOS": "ON",
+        "DSP_BUILD_BENCHMARKS": "ON",
+        "DSP_WARNINGS_AS_ERRORS": "OFF"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release baseline",
+      "description": "Portable Release build with tests, demos, and benchmarks enabled.",
+      "inherits": "base",
+      "cacheVariables": {
+        "DSP_ENABLE_AVX2": "OFF"
+      }
+    },
+    {
+      "name": "release-avx2",
+      "displayName": "Release AVX2",
+      "description": "Release build with AVX2 kernels enabled.",
+      "inherits": "base",
+      "cacheVariables": {
+        "DSP_ENABLE_AVX2": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "jobs": 0
+    },
+    {
+      "name": "release-avx2",
+      "configurePreset": "release-avx2",
+      "jobs": 0
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "release-avx2",
+      "configurePreset": "release-avx2",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
