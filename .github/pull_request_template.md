@@ -16,3 +16,7 @@ Describe the DSP kernel, test, benchmark, packaging, or documentation change.
 ## Evidence
 
 List commands, tests, benchmark results, plots, or reports used to verify the change.
+
+## Risks
+
+Describe numerical assumptions, changed tolerances and possible regressions.
