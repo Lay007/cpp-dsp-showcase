@@ -168,3 +168,8 @@ the code is small enough to study, but structured enough to demonstrate how DSP 
 ## License
 
 MIT
+# Fixed-point FIR evidence
+
+The [shared Q15 vector package](verification/vectors/fir_q15/README.md) checks
+Python reference, C++ float and C++ fixed-point convolution with explicit
+rounding and saturation. RTL and hardware qualification remain future work.

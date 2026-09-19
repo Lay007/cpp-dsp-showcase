@@ -65,12 +65,20 @@ endif()
 if(BUILD_TESTING)
     add_executable(dsp_core_tests
         tests/dsp_fir_test.cpp
+        tests/dsp_fixed_fir_test.cpp
         tests/dsp_goertzel_test.cpp
         tests/dsp_gcc_phat_test.cpp
         tests/dsp_resampler_test.cpp
         tests/dsp_api_validation_test.cpp
     )
     target_link_libraries(dsp_core_tests PRIVATE dsp_core::dsp GTest::gtest_main)
+    target_compile_definitions(dsp_core_tests PRIVATE
+        DSP_FIR_VECTOR_DIR="${CMAKE_CURRENT_SOURCE_DIR}/../verification/vectors/fir_q15")
+    find_package(Python3 COMPONENTS Interpreter QUIET)
+    if(Python3_Interpreter_FOUND)
+        add_test(NAME fir_vector_regeneration
+            COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../tools/generate_fir_vectors.py --check)
+    endif()
     dsp_core_enable_warnings(dsp_core_tests)
 
     include(GoogleTest)
