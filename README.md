@@ -18,6 +18,14 @@ deterministic kernels, unit tests, benchmark tooling, CI, and supporting SDR cou
 - SDR-oriented lab track and supporting plots under `docs/`
 - Installable CMake package export for downstream projects
 
+### Engineering collaboration
+
+This repository is also a compact evidence base for focused C++ DSP work:
+algorithm implementation, deterministic validation, performance measurement,
+CMake packaging, and model-to-software transitions. For consulting or project
+collaboration, see the [engineering portfolio](https://lay007.github.io/) or
+[GitHub profile](https://github.com/Lay007).
+
 ## Implemented modules
 
 | Area | What is included |
