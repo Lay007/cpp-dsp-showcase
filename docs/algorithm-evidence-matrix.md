@@ -17,7 +17,7 @@ The goal is to make the repository reviewable as an engineering portfolio artifa
 | Rational L/M resampler | active | active | active | generated response / demo | possible | add alias rejection metric |
 | IQ file analysis demo | active | smoke/demo | planned | demo output | not direct | add small public CI16 vector |
 | SIMD / AVX2 path | optional | active where supported | active | performance report | not direct | add scalar-vs-AVX2 summary table |
-| CMake package export | active | install smoke possible | not applicable | README example | not applicable | add downstream consumer CI smoke |
+| CMake package export | active | installed consumer smoke in CMake CI (Linux/Windows) | not applicable | README example | not applicable | document a tagged package-release check |
 
 ## Reviewer checklist
 
@@ -47,5 +47,5 @@ known limitations
 1. Add a scalar-vs-AVX2 benchmark summary table.
 2. Add a small deterministic IQ vector under `data/` or `tests/data/`.
 3. Add fixed-point notes for FIR and Goertzel.
-4. Add a downstream CMake consumer smoke test.
+4. Maintain the installed CMake consumer CI smoke test; verify it for each tagged release.
 5. Add a bridge page that maps this repository to `zynq-sdr-course` labs.
