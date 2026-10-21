@@ -92,11 +92,19 @@ int main(int argc, char** argv) {
             }
 
             out << "# DSP Benchmark Dashboard\n\n";
-            out << "| Method | Time (ms) | Speedup |\n|---|---:|---:|\n";
+            out << "| Method | Time (ms) | Speedup vs FIR direct |\n|---|---:|---:|\n";
             const double baseline_ms = results.front().ms;
             for (const auto& entry : results) {
                 out << "| " << entry.name << " | " << std::fixed << std::setprecision(3) << entry.ms
-                    << " | " << baseline_ms / entry.ms << "x |\n";
+                    << " | ";
+                // FIR implementations process the same signal and filter; Goertzel
+                // evaluates a different operation and must not be compared as a speedup.
+                if (entry.name == "FIR direct" || entry.name == "FIR overlap-save FFT") {
+                    out << std::setprecision(2) << baseline_ms / entry.ms << "x";
+                } else {
+                    out << "n/a";
+                }
+                out << " |\n";
             }
         }
 
