@@ -24,8 +24,12 @@ jobs:
         include:
           - os: ubuntu-latest
             avx2: true
+          - os: ubuntu-latest
+            avx2: false
           - os: windows-latest
             avx2: true
+          - os: windows-latest
+            avx2: false
 
     steps:
       - name: Checkout
@@ -96,7 +100,7 @@ jobs:
         if: runner.os == 'Linux'
         uses: actions/upload-artifact@v7
         with:
-          name: dsp-generated-assets
+          name: dsp-generated-assets-${{ matrix.avx2 && 'avx2' || 'baseline' }}
           path: |
             build/reports/dsp_performance.md
             docs/assets/fir_response.svg
