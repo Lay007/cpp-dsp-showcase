@@ -30,10 +30,10 @@ std::size_t next_power_of_two(std::size_t value) {
 }
 
 void validate_frequency(double sample_rate_hz, double frequency_hz, const char* name) {
-    if (sample_rate_hz <= 0.0) {
+    if (!std::isfinite(sample_rate_hz) || sample_rate_hz <= 0.0) {
         throw std::invalid_argument("Sample rate must be > 0.");
     }
-    if (frequency_hz < 0.0 || frequency_hz >= sample_rate_hz / 2.0) {
+    if (!std::isfinite(frequency_hz) || frequency_hz < 0.0 || frequency_hz >= sample_rate_hz / 2.0) {
         throw std::invalid_argument(std::string(name) + " must be in range [0.0, Nyquist).");
     }
 }
@@ -180,7 +180,7 @@ double rms(const Signal& signal) {
 
 std::vector<double> design_lowpass_fir(int taps, double cutoff_cycles_per_sample) {
     if (taps < 7 || taps % 2 == 0) throw std::invalid_argument("FIR taps must be odd and >= 7.");
-    if (cutoff_cycles_per_sample <= 0.0 || cutoff_cycles_per_sample >= 0.5) throw std::invalid_argument("Cutoff must be in range (0.0, 0.5).");
+    if (!std::isfinite(cutoff_cycles_per_sample) || cutoff_cycles_per_sample <= 0.0 || cutoff_cycles_per_sample >= 0.5) throw std::invalid_argument("Cutoff must be in range (0.0, 0.5).");
     std::vector<double> h(static_cast<std::size_t>(taps), 0.0);
     const int midpoint = taps / 2;
     for (int n = 0; n < taps; ++n) {
@@ -197,7 +197,7 @@ std::vector<double> design_lowpass_fir(int taps, double cutoff_cycles_per_sample
 
 double frequency_response_magnitude(const std::vector<double>& taps, double normalized_frequency) {
     if (taps.empty()) throw std::invalid_argument("Taps are empty.");
-    if (normalized_frequency < 0.0 || normalized_frequency > 0.5) throw std::invalid_argument("Normalized frequency must be in range [0.0, 0.5].");
+    if (!std::isfinite(normalized_frequency) || normalized_frequency < 0.0 || normalized_frequency > 0.5) throw std::invalid_argument("Normalized frequency must be in range [0.0, 0.5].");
     Complex acc(0.0, 0.0);
     for (std::size_t n = 0; n < taps.size(); ++n) {
         const double angle = -2.0 * kPi * normalized_frequency * static_cast<double>(n);
@@ -224,7 +224,7 @@ double goertzel_power(const Signal& signal, double sample_rate_hz, double target
 
 std::vector<double> goertzel_power_batch(const Signal& signal, double sample_rate_hz, const std::vector<double>& target_hz) {
     if (signal.empty()) throw std::invalid_argument("Signal is empty.");
-    if (sample_rate_hz <= 0.0) throw std::invalid_argument("Sample rate must be > 0.");
+    if (!std::isfinite(sample_rate_hz) || sample_rate_hz <= 0.0) throw std::invalid_argument("Sample rate must be finite and > 0.");
 
     for (double frequency_hz : target_hz) {
         validate_frequency(sample_rate_hz, frequency_hz, "Target frequency");
@@ -294,7 +294,7 @@ Signal resample_rational(const Signal& input, int up_factor, int down_factor, in
     if (input.empty()) return {};
     if (up_factor <= 0 || down_factor <= 0) throw std::invalid_argument("Resampling factors must be > 0.");
     if (filter_taps < 7 || filter_taps % 2 == 0) throw std::invalid_argument("Filter taps must be odd and >= 7.");
-    if (cutoff_scale <= 0.0 || cutoff_scale > 1.0) throw std::invalid_argument("cutoff_scale must be in range (0.0, 1.0].");
+    if (!std::isfinite(cutoff_scale) || cutoff_scale <= 0.0 || cutoff_scale > 1.0) throw std::invalid_argument("cutoff_scale must be in range (0.0, 1.0].");
     const double cutoff = 0.5 / static_cast<double>(std::max(up_factor, down_factor)) * cutoff_scale;
     auto anti_alias = design_lowpass_fir(filter_taps, cutoff);
     for (double& tap : anti_alias) tap *= static_cast<double>(up_factor);
